@@ -2,7 +2,6 @@
 --
 -- Module      :   a more elaborate sub
 -----------------------------------------------------------------------------
--- {-# OPTIONS_GHC -F -pgmF htfpp #-}
 {-# LANGUAGE FlexibleContexts      #-}
 {-# LANGUAGE FlexibleInstances     #-}
 {-# LANGUAGE MultiParamTypeClasses #-}
@@ -10,6 +9,7 @@
 {-# LANGUAGE TypeFamilies          #-}
 {-# LANGUAGE TypeSynonymInstances  #-}
 {-# LANGUAGE OverloadedStrings     #-}
+{-# OPTIONS_GHC -Wno-missing-signatures #-}
 
 module Lib.OpenClass   
      where
@@ -37,15 +37,15 @@ class X p where
 
 instance  X (Data1 ) where
     type IsA Data1 = String
-    op1 (Data1 s) = show s
+    op1 (Data1 s1) = show s1
 
 instance  X (Data2 ) where
     type IsA Data2 = Text
-    op1 (Data2 s) = s2t $ show s
+    op1 (Data2 s1) = s2t $ show s1
 
 instance  X (Data3) where    -- does compile
     type IsA Data3 = String
-    op1 (Data3 s) =   show s
+    op1 (Data3 s1) =   show s1
 
 d1 = Data1 "eines"
 d2 = Data2 "zwei"

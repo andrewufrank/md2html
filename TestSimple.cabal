@@ -4,10 +4,10 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 8d548c16e3495475fe4875186b7fc83a4d4b2ccc7b94e1e31cd04b1cd03fe6ae
+-- hash: 9822a531778c251a450f75c121a52573196c83668e1f30d985eef725fe5d9a80
 
 name:           TestSimple
-version:        0.1.0
+version:        0.2.0
 license:        BSD2
 license-file:   LICENSE
 build-type:     Simple

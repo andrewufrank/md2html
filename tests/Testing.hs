@@ -5,10 +5,12 @@
 -----------------------------------------------------------------------------
 {-# OPTIONS_GHC -F -pgmF htfpp #-}
 
-module Main     where      -- must have Main (main) or Main where
+module Testing     where      -- must have Main (main) or Main where
+                -- ghcid complains with Main
 
 
 --import System.Exit
+import Uniform.Error 
 
 import           Test.Framework
 import {-@ HTF_TESTS @-} Lib.DirTree
