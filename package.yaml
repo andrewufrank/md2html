@@ -1,0 +1,32 @@
+name:           TestSimple
+version:        0.1.0
+
+ghc-options: -Wall
+
+dependencies:
+  - base == 4.*
+  - uniform-strings
+  - uniform-convenience
+#  - test-framework 
+  - QuickCheck
+  - HTF
+
+library:
+  source-dirs: .
+
+executables:
+  foo:
+    main: ClassMain.hs
+    source-dirs: src
+    dependencies: 
+      - TestSimple
+
+tests:
+  test1:
+    main: ExampleTesting.hs
+    source-dirs: tests
+    dependencies: 
+      - TestSimple
+#      - QuickCheck 
+#      - test-framework 
+
