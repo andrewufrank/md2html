@@ -1,16 +1,13 @@
 -----------------------------------------------------------------------------
 --
--- Module      :   a test for HTF framework
--- insert {-@ HTF_TESTS @-} for each import
------------------------------------------------------------------------------
---{-# OPTIONS_GHC -F -pgmF htfpp #-}
+-- Module      :   a test  
+------------------------------------------------------------------------
+
 {-# OPTIONS_GHC -Wno-missing-signatures #-}
 
 module Main     where      -- must have Main (main) or Main where
 
-
---import System.Exit
-
+ 
 import           Lib.DirTree
 import           Lib.OpenClass
 

@@ -1,15 +1,16 @@
 name:           TestSimple
-version:        0.2.0
+version:        0.2.1
 
 ghc-options: -Wall
-
+description: 
+    version 0.2.1 - no imports, no test, to learn about ghcide
 dependencies:
   - base == 4.*
-  - uniform-strings
-  - uniform-convenience
-#  - test-framework 
-  - QuickCheck
-  - HTF
+#   - uniform-strings
+#   - uniform-convenience
+# #  - test-framework 
+#   - QuickCheck
+#   - HTF
 
 library:
   source-dirs: .
@@ -21,12 +22,12 @@ executables:
     dependencies: 
       - TestSimple
 
-tests:
-  test1:
-    main: ExampleTesting.hs
-    source-dirs: tests
-    dependencies: 
-      - TestSimple
-#      - QuickCheck 
-#      - test-framework 
+# tests:
+#   test1:
+#     main: ExampleTesting.hs
+#     source-dirs: tests
+#     dependencies: 
+#       - TestSimple
+# #      - QuickCheck 
+# #      - test-framework 
 

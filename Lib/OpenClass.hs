@@ -14,21 +14,21 @@
 module Lib.OpenClass   
      where
 
-import Uniform.Strings
+-- import Uniform.Strings
 
 openMain :: IO ()
 openMain = do
     return ()
 
 data Data1 = Data1 {s :: String}
-data Data2 = Data2 {f :: Text}
+data Data2 = Data2 {f :: String}
 data Data3 = Data3 {i :: Int}
 
 --type family IsA t where
 ----    op1 :: A t -> String      -- show
 ----    op2 :: A t -> A t -> A t  -- add
 --    IsA (Data1) = String
---    IsA (Data2) = Text
+--    IsA (Data2) = String
 
 class X p where
     type IsA p
@@ -40,8 +40,8 @@ instance  X (Data1 ) where
     op1 (Data1 s1) = show s1
 
 instance  X (Data2 ) where
-    type IsA Data2 = Text
-    op1 (Data2 s1) = s2t $ show s1
+    type IsA Data2 = String
+    op1 (Data2 s1) =  show s1
 
 instance  X (Data3) where    -- does compile
     type IsA Data3 = String
