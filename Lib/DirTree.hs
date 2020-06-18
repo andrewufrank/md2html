@@ -21,6 +21,7 @@ module Lib.DirTree
 
 dirMain :: IO ()
 dirMain = do
+    putStrLn "Lib.DirTree here"
     return ()
 
 
