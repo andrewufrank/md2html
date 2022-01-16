@@ -72,12 +72,8 @@ mdConversion   = do
     pdf1  <- unPandocM $ Pandoc.makePDF "lualatex"   [] Pandoc.writeLaTeX (latexOptions  ( tmpl1)) d1c
     let fn =  "docs/result.pdf" :: String
     writeFile2 fn (either id id pdf1)
-            -- (either (bl2t.t2s) (bl2t.t2s) pdf1)
-    -- putIOwords ["\npdf1", showT pdf1]
+            -- could use handleError
     putIOwords ["\npdf1", "done in /docs/result.pdf"]
-    
-    
-    -- (def { writerStandalone = True, writerTemplate = tmpl}) pdoc
 
     putIOwords ["\nmdConversion done"]
     return ()
