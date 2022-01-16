@@ -24,6 +24,8 @@
 module Lib.Top (mdConversion) where
 
 import qualified Text.Pandoc as Pandoc
+import Text.Pandoc.Writers.LaTeX
+import Text.Pandoc.PDF as Pandoc
 
 import UniformBase
 import qualified Uniform.PandocImports as UP
@@ -58,6 +60,12 @@ mdConversion   = do
     putIOwords ["html", showT html]
 
     putIOwords ["mdConversion",  "pandoc to pdf"]
+    pdf1 <- unPandocM $ Pandoc.makePDF "lualatex"   [] Pandoc.writeLaTeX Pandoc.def d1c
+    putIOwords ["pdf1", showT pdf1]
+    
+    
+    -- (def { writerStandalone = True, writerTemplate = tmpl}) pdoc
+
     putIOwords ["mdConversion done"]
     return ()
 
