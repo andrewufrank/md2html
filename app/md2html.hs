@@ -17,6 +17,8 @@
 module Main where -- must have Main (main) or Main where
 
 import Paths_md2html
+import Data.Version
+
 import Uniform.StartApp ( startProgWithTitle )  
 import UniformBase  
 import Lib.Top
@@ -24,7 +26,7 @@ import Lib.Top
 
 programName, progTitle :: Text
 programName = "md2html" :: Text
-progTitle = unwords' ["example md to HTML and PDF", showVersion version] :: Text
+progTitle = unwords' ["example md to HTML and PDF", s2t $ showVersion version] :: Text
 -- could use version from cabal? 
 
 -- the process is centered on the current working dir
