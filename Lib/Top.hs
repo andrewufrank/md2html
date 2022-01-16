@@ -26,12 +26,17 @@ module Lib.Top (mdConversion) where
 import qualified Text.Pandoc as Pandoc
 import Text.Pandoc.Writers.LaTeX
 import Text.Pandoc.PDF as Pandoc
+import Text.Pandoc.Highlighting (tango)
+
+import Data.Aeson.Encode.Pretty
 
 import UniformBase
 import qualified Uniform.PandocImports as UP
-import Uniform.Pandoc (MarkdownText, markdownFileType, Pandoc, unPandocM)
+import Uniform.Pandoc (MarkdownText, unMT, markdownFileType, Pandoc, unPandocM)
 import Uniform.Pandoc (writeHtml5String2)
 import Uniform.BibTex
+
+showJSONnice = bl2t.encodePretty
 
 mdConversion ::  ErrIO ()
 mdConversion   = do
@@ -44,24 +49,24 @@ mdConversion   = do
     let 
         d1fn = makeRelFile "doc1"
         
-    d1 :: MarkdownText <- read7 docs d1fn  markdownFileType
-    putIOwords ["d1", showT d1]
+    mdText1 :: MarkdownText <- read7 docs d1fn  markdownFileType
+    putIOwords ["mdText1", unMT mdText1]
     
     putIOwords ["mdConversion",  "md to pandoc"]
-    d1p :: Pandoc <- readMarkdown2 d1 
-    putIOwords ["d1p", showT d1p]
+    pandoc1 :: Pandoc <- readMarkdown2 mdText1 
+    putIOwords ["pandoc1", showJSONnice pandoc1]
     
 
     putIOwords ["mdConversion",  "pandoc process cites"]
-    d1c :: Pandoc <- pandocProcessCites d1p
-    putIOwords ["d1p", showT d1c]
+    d1c :: Pandoc <- pandocProcessCites pandoc1
+    putIOwords ["d1p", showJSONnice d1c]
 
     putIOwords ["mdConversion",  "pandoc to hmtl"]
     html <- writeHtml5String2 d1c
     putIOwords ["html", showT html]
 
     putIOwords ["mdConversion",  "pandoc to pdf"]
-    pdf1 <- unPandocM $ Pandoc.makePDF "lualatex"   [] Pandoc.writeLaTeX Pandoc.def d1c
+    pdf1 <- unPandocM $ Pandoc.makePDF "lualatex"   [] Pandoc.writeLaTeX latexOptions d1c
     putIOwords ["pdf1", showT pdf1]
     
     
@@ -91,3 +96,21 @@ markdownOptions = Pandoc.def { Pandoc.readerExtensions = exts }
             ]
         , Pandoc.githubMarkdownExtensions
         ]
+
+latexOptions :: Pandoc.WriterOptions
+-- | reasonable extension - crucial!
+latexOptions =
+  Pandoc.def
+    { Pandoc.writerHighlightStyle = Just tango,
+      Pandoc.writerCiteMethod = Pandoc.Natbib,
+      -- Citeproc                        -- use citeproc to render them
+      --           | Natbib                        -- output natbib cite commands
+      --           | Biblatex                      -- output biblatex cite commands
+      Pandoc.writerExtensions =
+        Pandoc.extensionsFromList
+          [ Pandoc.Ext_raw_tex --Allow raw TeX (other than math)
+          -- , Pandoc.Ext_shortcut_reference_links
+          -- , Pandoc.Ext_spaced_reference_links
+          -- , Pandoc.Ext_citations           -- <-- this is the important extension for bibTex
+          ]
+    }
