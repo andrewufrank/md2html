@@ -1,5 +1,5 @@
-name:           hs2html
-version:        0.2.1
+name:           md2html
+version:        0.0.1
 
 ghc-options: -Wall
 synopsis: convert markdown to HTML and PDF
@@ -9,6 +9,8 @@ description: |
     with pandoc
 dependencies:
   - base >= 4.7 && < 5
+  - uniformBase
+  - uniform-startapp
 #   - uniform-strings
 #   - uniform-convenience
 # #  - test-framework 
@@ -20,10 +22,10 @@ library:
 
 executables:
   md2:
-    main: ClassMain.hs
-    source-dirs: src
+    main: md2html.hs
+    source-dirs: app
     dependencies: 
-      - hs2html
+      - md2html
 
 # tests:
 #   test1:

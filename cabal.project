@@ -1,0 +1,26 @@
+ 
+packages: 
+    ./*.cabal
+--    ../uBase/uniformBase/*.cabal
+--    ../uBase/uniform-algebras/*.cabal
+--    ../uBase/uniform-strings/*.cabal
+--    ../uBase/uniform-error/*.cabal
+--   ../uBase/uniform-time/*.cabal
+--    ../uBase/uniform-fileio/*.cabal 
+
+    ../u4blog/uniform-json/*.cabal
+-- --/home/frank/Workspace11/u4blog/uniform-json/uniform-json.cabal
+    ../u4blog/uniform-webserver/*.cabal
+    ../u4blog/uniform-watch/*.cabal
+    ../u4blog/uniform-latex2pdf/*.cabal
+    ../u4blog/uniform-shake/*.cabal
+    ../u4blog/uniform-pandoc/*.cabal
+--    /home/frank/Workspace11/u4blog/uniform-pandoc/uniform-pandoc.cabal
+--    ../u2to/uniform-convenience/*.cabal
+    ../u2to/uniform-startapp/*.cabal
+    ../u2to/uniform-cmdLineArgs/*.cabal
+
+
+-- Disregard all upper bounds when dependency solving
+-- allow-newer: all 
+-- fails because  zlib <4.16
