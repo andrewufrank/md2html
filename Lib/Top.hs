@@ -15,8 +15,8 @@
             -fno-warn-unused-imports 
             -fno-warn-unused-matches #-}
 
-{- | to convert
-              files in any input format (primarily md) 
+{- | to convert a markdown file (.md) 
+
                 to html and to pdf 
               orginals are found in dire doughDir and go to bakeDir
 -}
@@ -29,7 +29,11 @@ import UniformBase
 mdConversion ::  ErrIO ()
 mdConversion   = do
     putIOwords ["mdConversion",  "start"]
-
+    putIOwords ["mdConversion",  "read md"]
+    putIOwords ["mdConversion",  "md to pandoc"]
+    putIOwords ["mdConversion",  "pandoc process cites"]
+    putIOwords ["mdConversion",  "pandoc to hmtl"]
+    putIOwords ["mdConversion",  "pandoc to pdf"]
     putIOwords ["mdConversion done"]
     return ()
 
