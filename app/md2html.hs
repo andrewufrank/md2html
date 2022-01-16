@@ -24,7 +24,7 @@ import Lib.Top
 
 programName, progTitle :: Text
 programName = "md2html" :: Text
-progTitle = unwords' ["example md to HTML and PDF", showT version] :: Text
+progTitle = unwords' ["example md to HTML and PDF", showVersion version] :: Text
 -- could use version from cabal? 
 
 -- the process is centered on the current working dir

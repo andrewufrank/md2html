@@ -35,14 +35,16 @@ import Uniform.BibTex
 
 mdConversion ::  ErrIO ()
 mdConversion   = do
-    putIOwords ["mdConversion",  "start"]
+    putIOwords ["mdConversion",  "preparations"]
 
-    putIOwords ["mdConversion",  "read md"]
     curr <- currentDir 
     let docs = addDir curr (makeRelDir "docs")
+
+    putIOwords ["mdConversion",  "read md"]
     let 
         d1fn = makeRelFile "doc1"
         mdFile = makeTyped (Extension "md")  ::TypedFile5 [Text] Text
+        
     d1 :: MarkdownText <- read7 docs d1fn  markdownFileType
     putIOwords ["d1", showT d1]
     
