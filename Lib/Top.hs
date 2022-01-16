@@ -34,15 +34,19 @@ mdConversion   = do
     putIOwords ["mdConversion",  "start"]
 
     putIOwords ["mdConversion",  "read md"]
-    docs <- currentDir 
+    curr <- currentDir 
+    let docs = addDir curr (makeRelDir "docs")
     let 
         d1fn = makeRelFile "doc1"
         mdFile = makeTyped (Extension "md")  ::TypedFile5 [Text] Text
     d1 :: MarkdownText <- read7 docs d1fn  markdownFileType
-    d1p :: Pandoc <- readMarkdown2 d1 
     putIOwords ["d1", showT d1]
-
+    
     putIOwords ["mdConversion",  "md to pandoc"]
+    d1p :: Pandoc <- readMarkdown2 d1 
+    putIOwords ["d1p", showT d1p]
+    
+
     putIOwords ["mdConversion",  "pandoc process cites"]
     putIOwords ["mdConversion",  "pandoc to hmtl"]
     putIOwords ["mdConversion",  "pandoc to pdf"]
