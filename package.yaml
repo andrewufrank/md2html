@@ -13,7 +13,7 @@ dependencies:
   - uniformBase
   - uniform-startapp
   - uniform-pandoc 
-  
+
 #   - uniform-strings
 #   - uniform-convenience
 # #  - test-framework 

@@ -28,6 +28,8 @@ import qualified Text.Pandoc as Pandoc
 import UniformBase
 import qualified Uniform.PandocImports as UP
 import Uniform.PandocImports (MarkdownText, markdownFileType, Pandoc, unPandocM)
+import Uniform.Pandoc (writeHtml5String2)
+import Uniform.BibTex
 
 mdConversion ::  ErrIO ()
 mdConversion   = do
@@ -48,7 +50,13 @@ mdConversion   = do
     
 
     putIOwords ["mdConversion",  "pandoc process cites"]
+    d1c :: Pandoc <- pandocProcessCites d1p
+    putIOwords ["d1p", showT d1c]
+
     putIOwords ["mdConversion",  "pandoc to hmtl"]
+    html <- writeHtml5String2 d1c
+    putIOwords ["html", showT html]
+
     putIOwords ["mdConversion",  "pandoc to pdf"]
     putIOwords ["mdConversion done"]
     return ()

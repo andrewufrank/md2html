@@ -12,8 +12,9 @@ abstract: |
 nocite: |
   @navratil08
 language: en_US
-bibliography: "resources/BibTexLatex.bib"
-csl: chicago-fullnote-bibliography-bb.csl
+bibliography: "docs/BibTexLatex.bib"
+csl: docs/chicago-fullnote-bibliography-bb.csl
+biblio-style: docs/chicago-fullnote-bibliography-bb.csl
 
 ---
 
