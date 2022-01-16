@@ -1,11 +1,14 @@
-name:           TestSimple
+name:           hs2html
 version:        0.2.1
 
 ghc-options: -Wall
-description: 
-    version 0.2.1 - no imports, no test, to learn about ghcide
+synopsis: convert markdown to HTML and PDF
+
+description: |
+    an example how to convert an markdown file to HTML and PDF 
+    with pandoc
 dependencies:
-  - base == 4.*
+  - base >= 4.7 && < 5
 #   - uniform-strings
 #   - uniform-convenience
 # #  - test-framework 
@@ -16,11 +19,11 @@ library:
   source-dirs: .
 
 executables:
-  foo:
+  md2:
     main: ClassMain.hs
     source-dirs: src
     dependencies: 
-      - TestSimple
+      - hs2html
 
 # tests:
 #   test1:

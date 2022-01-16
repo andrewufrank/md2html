@@ -1,14 +1,14 @@
 cabal-version: 1.12
 
--- This file has been generated from package.yaml by hpack version 0.33.0.
+-- This file has been generated from package.yaml by hpack version 0.34.6.
 --
 -- see: https://github.com/sol/hpack
---
--- hash: 17a14a5c14811bb5eaa674d699f2ede83c12ca23a5deb0a028e7105ea6f6652a
 
-name:           TestSimple
+name:           hs2html
 version:        0.2.1
-description:    version 0.2.1 - no imports, no test, to learn about ghcide
+synopsis:       convert markdown to HTML and PDF
+description:    an example how to convert an markdown file to HTML and PDF 
+                with pandoc
 license:        BSD2
 license-file:   LICENSE
 build-type:     Simple
@@ -18,22 +18,22 @@ library
       Lib.DirTree
       Lib.OpenClass
   other-modules:
-      Paths_TestSimple
+      Paths_hs2html
   hs-source-dirs:
-      ./.
+      ./
   ghc-options: -Wall
   build-depends:
-      base ==4.*
+      base >=4.7 && <5
   default-language: Haskell2010
 
-executable foo
+executable md2
   main-is: ClassMain.hs
   other-modules:
-      Paths_TestSimple
+      Paths_hs2html
   hs-source-dirs:
       src
   ghc-options: -Wall
   build-depends:
-      TestSimple
-    , base ==4.*
+      base >=4.7 && <5
+    , hs2html
   default-language: Haskell2010
