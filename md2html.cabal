@@ -22,7 +22,8 @@ library
       ./
   ghc-options: -Wall
   build-depends:
-      base >=4.7 && <5
+      aeson-pretty
+    , base >=4.7 && <5
     , pandoc
     , uniform-pandoc
     , uniform-startapp
@@ -37,7 +38,8 @@ executable md2
       app
   ghc-options: -Wall
   build-depends:
-      base >=4.7 && <5
+      aeson-pretty
+    , base >=4.7 && <5
     , md2html
     , pandoc
     , uniform-pandoc

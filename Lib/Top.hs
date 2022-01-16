@@ -40,39 +40,46 @@ showJSONnice = bl2t.encodePretty
 
 mdConversion ::  ErrIO ()
 mdConversion   = do
-    putIOwords ["mdConversion",  "preparations"]
+    putIOwords ["\nmdConversion",  "preparations"]
 
     curr <- currentDir 
     let docs = addDir curr (makeRelDir "docs")
 
-    putIOwords ["mdConversion",  "read md"]
+    putIOwords ["\nmdConversion",  "read md"]
     let 
         d1fn = makeRelFile "doc1"
         
     mdText1 :: MarkdownText <- read7 docs d1fn  markdownFileType
-    putIOwords ["mdText1", unMT mdText1]
+    putIOwords ["\nmdText1", unMT mdText1]
     
-    putIOwords ["mdConversion",  "md to pandoc"]
+    putIOwords ["\nmdConversion",  "md to pandoc"]
     pandoc1 :: Pandoc <- readMarkdown2 mdText1 
-    putIOwords ["pandoc1", showJSONnice pandoc1]
+    putIOwords ["\npandoc1", showJSONnice pandoc1]
     
 
-    putIOwords ["mdConversion",  "pandoc process cites"]
+    putIOwords ["\nmdConversion",  "pandoc process cites"]
     d1c :: Pandoc <- pandocProcessCites pandoc1
-    putIOwords ["d1p", showJSONnice d1c]
+    putIOwords ["\nd1p", showJSONnice d1c]
 
-    putIOwords ["mdConversion",  "pandoc to hmtl"]
+    putIOwords ["\nmdConversion",  "pandoc to hmtl"]
     html <- writeHtml5String2 d1c
-    putIOwords ["html", showT html]
+    -- produces WARNING: The term Abstract has no translation defined.
+    putIOwords ["\nhtml", showT html]
 
-    putIOwords ["mdConversion",  "pandoc to pdf"]
-    pdf1 <- unPandocM $ Pandoc.makePDF "lualatex"   [] Pandoc.writeLaTeX latexOptions d1c
-    putIOwords ["pdf1", showT pdf1]
+    putIOwords ["\nmdConversion",  "pandoc to pdf"]
+    tmpl1 <- unPandocM $ Pandoc.compileDefaultTemplate "latex"  
+
+    pdf1  <- unPandocM $ Pandoc.makePDF "lualatex"   [] Pandoc.writeLaTeX (latexOptions  ( tmpl1)) d1c
+    let fn =  "docs/result.pdf" :: String
+    writeFile2 fn (either id id pdf1)
+            -- (either (bl2t.t2s) (bl2t.t2s) pdf1)
+    -- putIOwords ["\npdf1", showT pdf1]
+    putIOwords ["\npdf1", "done in /docs/result.pdf"]
     
     
     -- (def { writerStandalone = True, writerTemplate = tmpl}) pdoc
 
-    putIOwords ["mdConversion done"]
+    putIOwords ["\nmdConversion done"]
     return ()
 
 readMarkdown2 text1 =
@@ -97,12 +104,13 @@ markdownOptions = Pandoc.def { Pandoc.readerExtensions = exts }
         , Pandoc.githubMarkdownExtensions
         ]
 
-latexOptions :: Pandoc.WriterOptions
+latexOptions :: Pandoc.Template Text -> Pandoc.WriterOptions
 -- | reasonable extension - crucial!
-latexOptions =
+latexOptions template1 =
   Pandoc.def
     { Pandoc.writerHighlightStyle = Just tango,
       Pandoc.writerCiteMethod = Pandoc.Natbib,
+      Pandoc.writerTemplate = Just template1,
       -- Citeproc                        -- use citeproc to render them
       --           | Natbib                        -- output natbib cite commands
       --           | Biblatex                      -- output biblatex cite commands
