@@ -23,6 +23,8 @@ library
   ghc-options: -Wall
   build-depends:
       base >=4.7 && <5
+    , pandoc
+    , uniform-pandoc
     , uniform-startapp
     , uniformBase
   default-language: Haskell2010
@@ -37,6 +39,8 @@ executable md2
   build-depends:
       base >=4.7 && <5
     , md2html
+    , pandoc
+    , uniform-pandoc
     , uniform-startapp
     , uniformBase
   default-language: Haskell2010

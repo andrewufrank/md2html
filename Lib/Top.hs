@@ -23,13 +23,25 @@
 
 module Lib.Top (mdConversion) where
 
+import qualified Text.Pandoc as Pandoc
 
 import UniformBase
+import qualified Uniform.PandocImports as UP
+import Uniform.PandocImports (MarkdownText, markdownFileType, Pandoc, unPandocM)
 
 mdConversion ::  ErrIO ()
 mdConversion   = do
     putIOwords ["mdConversion",  "start"]
+
     putIOwords ["mdConversion",  "read md"]
+    docs <- currentDir 
+    let 
+        d1fn = makeRelFile "doc1"
+        mdFile = makeTyped (Extension "md")  ::TypedFile5 [Text] Text
+    d1 :: MarkdownText <- read7 docs d1fn  markdownFileType
+    d1p :: Pandoc <- readMarkdown2 d1 
+    putIOwords ["d1", showT d1]
+
     putIOwords ["mdConversion",  "md to pandoc"]
     putIOwords ["mdConversion",  "pandoc process cites"]
     putIOwords ["mdConversion",  "pandoc to hmtl"]
@@ -37,3 +49,24 @@ mdConversion   = do
     putIOwords ["mdConversion done"]
     return ()
 
+readMarkdown2 text1 =
+    unPandocM $ Pandoc.readMarkdown markdownOptions (unwrap7 text1 :: Text)
+
+-- | Reasonable options for reading a markdown file
+markdownOptions :: Pandoc.ReaderOptions
+markdownOptions = Pandoc.def { Pandoc.readerExtensions = exts }
+  where
+    exts = mconcat
+        [ Pandoc.extensionsFromList
+            [ Pandoc.Ext_yaml_metadata_block
+            , Pandoc.Ext_fenced_code_attributes
+            , Pandoc.Ext_auto_identifiers
+            -- , Pandoc.Ext_raw_html   -- three extension give markdown_strict
+            , Pandoc.Ext_raw_tex   --Allow raw TeX (other than math)
+            , Pandoc.Ext_shortcut_reference_links
+            , Pandoc.Ext_spaced_reference_links
+            , Pandoc.Ext_footnotes  -- all footnotes
+            , Pandoc.Ext_citations           -- <-- this is the important extension for bibTex
+            ]
+        , Pandoc.githubMarkdownExtensions
+        ]

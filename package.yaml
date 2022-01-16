@@ -9,8 +9,11 @@ description: |
     with pandoc
 dependencies:
   - base >= 4.7 && < 5
+  - pandoc 
   - uniformBase
   - uniform-startapp
+  - uniform-pandoc 
+  
 #   - uniform-strings
 #   - uniform-convenience
 # #  - test-framework 
