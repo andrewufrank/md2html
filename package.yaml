@@ -1,5 +1,5 @@
 name:           md2html
-version:        0.0.1
+version:        0.0.2
 
 ghc-options: -Wall
 synopsis: convert markdown to HTML and PDF
@@ -7,6 +7,9 @@ synopsis: convert markdown to HTML and PDF
 description: |
     an example how to convert an markdown file to HTML and PDF 
     with pandoc
+    version 0.0.1 uniform style, with ErrIO 
+            0.0.2 pandoc style 
+
 dependencies:
   - base >= 4.7 && < 5
   - pandoc 

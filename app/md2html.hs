@@ -23,37 +23,20 @@ import Uniform.StartApp ( startProgWithTitle )
 import UniformBase  
 import Lib.Top
 
-
-programName, progTitle :: Text
-programName = "md2html" :: Text
-progTitle = unwords' ["example md to HTML and PDF", s2t $ showVersion version] :: Text
--- could use version from cabal? 
-
--- the process is centered on the current working dir
+import Text.Pandoc 
+import Text.Pandoc as Pandoc
 
 main :: IO ()
-main =
-    startProgWithTitle
-        programName progTitle
-        ( do
-            mdConversion
-        --     flags :: PubFlags <-
-        --         parseArgs2input
-        --             sourceDirTestSite 
-        --             --  add a delete flag
-        --             ( unlinesT
-        --                 [ "the flags to select what is included:"
-        --                 , "default is nothing included"
-        --                 , "\n -p publish"
-        --                 , "\n -d drafts"
-        --                 , "\n -o old"
-        --                 , "\n -t test (use data in package)"
-        --                 , "\n -q quick (not producing the pdfs, which is slowing down)"
-        --                 , "\n -w start to watch the files for changes and rebake (implies -s s cancels -u"
-        --                 , "\n -s start local server (port is fixed in settings)"
-        --                 , "\n -u upload to external server (not yet implemented"
-        --                 ]
-        --             )
-        --             "list flags to include"
-        --     ssgProcess NoticeLevel0 flags
-        )
+main = do 
+
+putStrLn "start test md to html and pdf test with citations"
+
+res1 <- runIO  mdConversion
+res2 <- handleError  res1
+
+putStrLn . unwords $ ["end test. result: ", res2]
+
+mdConversion :: PandocIO () 
+mdConversion = do 
+    return ()
+ 
