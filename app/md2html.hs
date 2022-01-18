@@ -38,6 +38,11 @@ main = do
 
     putStrLn . unwords $ ["end test. result: ", show res2]
 
+    putStrLn . unwords $ ["run rest where each call is separately run"]
+
+    mdConversion2a  
+
+    putStrLn . unwords $ ["run uniform style run"]
     mdConversion1
 
 showJSONnice = show -- t2s . bl2t.encodePretty
@@ -56,6 +61,25 @@ mdConversion2 = do
     p2 <- processCitations p1 
 
     liftIO $ putStrLn . showJSONnice $ p2 
+
+    return ()
+
+mdConversion2a :: IO () 
+mdConversion2a = do 
+    -- read md file 
+    md1 <- readFile "docs/doc1.md"
+
+    -- convert md to pandoc 
+    p1e <- runIO $ readMarkdown markdownOptions (s2t md1)
+    p1 <- handleError p1e
+
+    putStrLn . showJSONnice $ p1 
+
+    -- process citations
+    p2e <-  runIO $ processCitations p1 
+    p2 <- handleError p2e
+
+    putStrLn . showJSONnice $ p2 
 
     return ()
 
