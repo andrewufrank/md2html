@@ -1,0 +1,76 @@
+Build profile: -w ghc-8.10.7 -O1
+In order, the following will be built (use -v for more details):
+ - md2html-0.0.2 (lib) (file Lib/Top.hs changed)
+ - md2html-0.0.2 (exe:md2) (dependency rebuilt)
+Preprocessing library for md2html-0.0.2..
+Building library for md2html-0.0.2..
+[2 of 2] Compiling Lib.Top          ( Lib/Top.hs, /home/frank/Workspace11/md2html/dist-newstyle/build/x86_64-linux/ghc-8.10.7/md2html-0.0.2/build/Lib/Top.o, /home/frank/Workspace11/md2html/dist-newstyle/build/x86_64-linux/ghc-8.10.7/md2html-0.0.2/build/Lib/Top.dyn_o )
+Preprocessing executable 'md2' for md2html-0.0.2..
+Building executable 'md2' for md2html-0.0.2..
+[2 of 2] Compiling Main             ( app/md2html.hs, /home/frank/Workspace11/md2html/dist-newstyle/build/x86_64-linux/ghc-8.10.7/md2html-0.0.2/x/md2/build/md2/md2-tmp/Main.o )
+Linking /home/frank/Workspace11/md2html/dist-newstyle/build/x86_64-linux/ghc-8.10.7/md2html-0.0.2/x/md2/build/md2/md2 ...
+start test md to html and pdf test with citations
+Pandoc (Meta {unMeta = fromList [("abstract",MetaBlocks [Para [Str "a",Space,Str "document",Space,Str "with",Space,Str "two",Space,Str "citations",Space,Str "in",Space,Str "text",SoftBreak,Str "and",Space,Str "one",Space,Str "as",Space,Str "nocite",Space,Str ".",SoftBreak,Str "bibliography",Space,Str "and",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "in",Space,Str "doc",Space,Str "header."]]),("author",MetaInlines [Str "AUF"]),("biblio-style",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("bibliography",MetaInlines [Str "docs/BibTexLatex.bib"]),("csl",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("date",MetaInlines [Str "2010-07-29"]),("keywords",MetaInlines [Str "test"]),("language",MetaInlines [Str "en_US"]),("nocite",MetaBlocks [Para [Cite [Citation {citationId = "navratil08", citationPrefix = [], citationSuffix = [], citationMode = AuthorInText, citationNoteNum = 1, citationHash = 0}] [Str "@navratil08"]]]),("title",MetaInlines [Str "Doc",Space,Str "One"])]}) [Para [Str "doc1.md",Space,Str "version",Space,Str "1"],Para [Str "The",Space,Cite [Citation {citationId = "frank09geo", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 2, citationHash = 0}] [Str "[@frank09geo]"],Space,Str "and",Space,Cite [Citation {citationId = "frank-machbarkeit", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 3, citationHash = 0}] [Str "[@frank-machbarkeit]"],Space,Str "are",Space,Str "just",Space,Str "refs."],Para [Str "The",Space,Str "references",Space,Str "are",Space,Str "in",Space,Str "\"resources/BibTexLatex.bib\".",SoftBreak,Str "The",Space,Str "default",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "as",Space,Str "chicago-fullnote-bibliography-bb.csl"],Header 1 ("references",[],[]) [Str "References"],Para [Str "here",Space,Str "the",Space,Str "refs!"]]
+Pandoc (Meta {unMeta = fromList [("abstract",MetaBlocks [Para [Str "a",Space,Str "document",Space,Str "with",Space,Str "two",Space,Str "citations",Space,Str "in",Space,Str "text",SoftBreak,Str "and",Space,Str "one",Space,Str "as",Space,Str "nocite",Space,Str ".",SoftBreak,Str "bibliography",Space,Str "and",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "in",Space,Str "doc",Space,Str "header."]]),("author",MetaInlines [Str "AUF"]),("biblio-style",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("bibliography",MetaInlines [Str "docs/BibTexLatex.bib"]),("csl",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("date",MetaInlines [Str "2010-07-29"]),("keywords",MetaInlines [Str "test"]),("language",MetaInlines [Str "en_US"]),("nocite",MetaBlocks [Para [Cite [Citation {citationId = "navratil08", citationPrefix = [], citationSuffix = [], citationMode = AuthorInText, citationNoteNum = 1, citationHash = 0}] [Str "@navratil08"]]]),("title",MetaInlines [Str "Doc",Space,Str "One"])]}) [Para [Str "doc1.md",Space,Str "version",Space,Str "1"],Para [Str "The",Cite [Citation {citationId = "frank09geo", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 2, citationHash = 0}] [Note [Para [Str "Andrew",Space,Str "U.",Space,Str "Frank,",Space,Span ("",[],[]) [Str "\8220",Str "Geo-ontologies",Space,Str "are",Space,Str "scale",Space,Str "dependent",Space,Str "(abstract",Space,Str "only)",Str ",",Str "\8221"],Space,Str "ed.",Space,Str "by.",Space,Str "Tuija",Space,Str "Pulkkinen,",Space,Emph [Str "European",Space,Str "geosciences",Space,Str "union,",Space,Str "general",Space,Str "assembly",Space,Str "2009,",Space,Str "session",Space,Str "knowledge",Space,Str "and",Space,Str "ontologies"],Str ",",Space,Str "2009,",Space,Link ("",[],[]) [Str "http://publik.tuwien.ac.at/files/PubDat-175453.pdf"] ("http://publik.tuwien.ac.at/files/PubDat-175453.pdf",""),Str "."]]],Space,Str "and",Cite [Citation {citationId = "frank-machbarkeit", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 3, citationHash = 0}] [Note [Para [Str "Andrew",Space,Str "U.",Space,Str "Frank,",Space,Span ("",[],[]) [Str "\8220",Str "Machbarkeit",Space,Str "eines",Space,Str "InformaInformations",Space,Str "f\252r",Space,Str "geographische",Space,Str "Daten",Str "\8221"],Space,Str "(Geoinformation,",Space,Str "Technische",Space,Str "Universitaet",Space,Str "Wien,",Space,Str "2014)."]]],Space,Str "are",Space,Str "just",Space,Str "refs."],Para [Str "The",Space,Str "references",Space,Str "are",Space,Str "in",Space,Str "\"resources/BibTexLatex.bib\".",SoftBreak,Str "The",Space,Str "default",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "as",Space,Str "chicago-fullnote-bibliography-bb.csl"],Header 1 ("references",[],[]) [Str "References"],Para [Str "here",Space,Str "the",Space,Str "refs!"],Div ("refs",["references","csl-bib-body","hanging-indent"],[]) [Div ("ref-frank09geo",["csl-entry"],[]) [Para [Str "Frank,",Space,Str "Andrew",Space,Str "U.",Space,Span ("",[],[]) [Str "\8220",Str "Geo-ontologies",Space,Str "are",Space,Str "scale",Space,Str "dependent",Space,Str "(abstract",Space,Str "only)",Str ".",Str "\8221"],Str "",Space,Str "Edited",Space,Str "by",Space,Str "Tuija",Space,Str "Pulkkinen.",Space,Emph [Str "European",Space,Str "geosciences",Space,Str "union,",Space,Str "general",Space,Str "assembly",Space,Str "2009,",Space,Str "session",Space,Str "knowledge",Space,Str "and",Space,Str "ontologies"],Str ",",Space,Str "2009.",Space,Link ("",[],[]) [Str "http://publik.tuwien.ac.at/files/PubDat-175453.pdf"] ("http://publik.tuwien.ac.at/files/PubDat-175453.pdf",""),Str "."]],Div ("ref-frank-machbarkeit",["csl-entry"],[]) [Para [Str "---.",Space,Span ("",[],[]) [Str "\8220",Str "Machbarkeit",Space,Str "eines",Space,Str "InformaInformations",Space,Str "f\252r",Space,Str "geographische",Space,Str "Daten",Str ".",Str "\8221"],Space,Str "Geoinformation,",Space,Str "Technische",Space,Str "Universitaet",Space,Str "Wien,",Space,Str "2014."]],Div ("ref-navratil08",["csl-entry"],[]) [Para [Str "Navratil,",Space,Str "Gerhard,",Space,Str "Farid",Space,Str "Karimipour,",Space,Str "and",Space,Str "Andrew",Space,Str "U.",Space,Str "Frank.",Space,Span ("",[],[]) [Str "\8220",Str "Lifting",Space,Str "imprecise",Space,Str "values",Str ".",Str "\8221"],Str "",Space,Str "Edited",Space,Str "by",Space,Str "Lars",Space,Str "Bernard,",Space,Str "Anders",Space,Str "Friis-Christensen,",Space,Str "and",Space,Str "Hardy",Space,Str "Pundt.",Space,Emph [Str "The",Space,Str "european",Space,Str "information",Space,Str "society"],Str ",",Space,Str "2008.",Space,Link ("",[],[]) [Str "http://publik.tuwien.ac.at/files/pub-geo-2321.pdf"] ("http://publik.tuwien.ac.at/files/pub-geo-2321.pdf",""),Str "."]]]]
+end test. result:  ()
+------------------  uniformStyle  ----------------------------
+
+
+mdConversion preparations
+
+mdConversion read md
+
+mdText1 ---
+title: Doc One 
+author: AUF
+date: 2010-07-29
+keywords: test
+# pageTemplate: page3.yaml
+abstract: |
+    a document with two citations in text 
+    and one as nocite .
+    bibliography and style is given in doc header.
+
+nocite: |
+  @navratil08
+language: en_US
+bibliography: "docs/BibTexLatex.bib"
+csl: docs/chicago-fullnote-bibliography-bb.csl
+biblio-style: docs/chicago-fullnote-bibliography-bb.csl
+
+---
+
+doc1.md  version 1
+ 
+The [@frank09geo] and [@frank-machbarkeit] are just refs.
+
+The references are in "resources/BibTexLatex.bib". 
+The default style is given as chicago-fullnote-bibliography-bb.csl 
+ 
+
+# References
+here the refs!
+
+
+
+mdConversion md to pandoc
+
+pandoc1 Pandoc (Meta {unMeta = fromList [("abstract",MetaBlocks [Para [Str "a",Space,Str "document",Space,Str "with",Space,Str "two",Space,Str "citations",Space,Str "in",Space,Str "text",SoftBreak,Str "and",Space,Str "one",Space,Str "as",Space,Str "nocite",Space,Str ".",SoftBreak,Str "bibliography",Space,Str "and",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "in",Space,Str "doc",Space,Str "header."]]),("author",MetaInlines [Str "AUF"]),("biblio-style",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("bibliography",MetaInlines [Str "docs/BibTexLatex.bib"]),("csl",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("date",MetaInlines [Str "2010-07-29"]),("keywords",MetaInlines [Str "test"]),("language",MetaInlines [Str "en_US"]),("nocite",MetaBlocks [Para [Cite [Citation {citationId = "navratil08", citationPrefix = [], citationSuffix = [], citationMode = AuthorInText, citationNoteNum = 1, citationHash = 0}] [Str "@navratil08"]]]),("title",MetaInlines [Str "Doc",Space,Str "One"])]}) [Para [Str "doc1.md",Space,Str "version",Space,Str "1"],Para [Str "The",Space,Cite [Citation {citationId = "frank09geo", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 2, citationHash = 0}] [Str "[@frank09geo]"],Space,Str "and",Space,Cite [Citation {citationId = "frank-machbarkeit", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 3, citationHash = 0}] [Str "[@frank-machbarkeit]"],Space,Str "are",Space,Str "just",Space,Str "refs."],Para [Str "The",Space,Str "references",Space,Str "are",Space,Str "in",Space,Str "\"resources/BibTexLatex.bib\".",SoftBreak,Str "The",Space,Str "default",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "as",Space,Str "chicago-fullnote-bibliography-bb.csl"],Header 1 ("references",[],[]) [Str "References"],Para [Str "here",Space,Str "the",Space,Str "refs!"]]
+
+mdConversion pandoc process cites
+
+d1p Pandoc (Meta {unMeta = fromList [("abstract",MetaBlocks [Para [Str "a",Space,Str "document",Space,Str "with",Space,Str "two",Space,Str "citations",Space,Str "in",Space,Str "text",SoftBreak,Str "and",Space,Str "one",Space,Str "as",Space,Str "nocite",Space,Str ".",SoftBreak,Str "bibliography",Space,Str "and",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "in",Space,Str "doc",Space,Str "header."]]),("author",MetaInlines [Str "AUF"]),("biblio-style",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("bibliography",MetaInlines [Str "docs/BibTexLatex.bib"]),("csl",MetaInlines [Str "docs/chicago-fullnote-bibliography-bb.csl"]),("date",MetaInlines [Str "2010-07-29"]),("keywords",MetaInlines [Str "test"]),("language",MetaInlines [Str "en_US"]),("nocite",MetaBlocks [Para [Cite [Citation {citationId = "navratil08", citationPrefix = [], citationSuffix = [], citationMode = AuthorInText, citationNoteNum = 1, citationHash = 0}] [Str "@navratil08"]]]),("title",MetaInlines [Str "Doc",Space,Str "One"])]}) [Para [Str "doc1.md",Space,Str "version",Space,Str "1"],Para [Str "The",Space,Cite [Citation {citationId = "frank09geo", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 2, citationHash = 0}] [Str "[@frank09geo]"],Space,Str "and",Space,Cite [Citation {citationId = "frank-machbarkeit", citationPrefix = [], citationSuffix = [], citationMode = NormalCitation, citationNoteNum = 3, citationHash = 0}] [Str "[@frank-machbarkeit]"],Space,Str "are",Space,Str "just",Space,Str "refs."],Para [Str "The",Space,Str "references",Space,Str "are",Space,Str "in",Space,Str "\"resources/BibTexLatex.bib\".",SoftBreak,Str "The",Space,Str "default",Space,Str "style",Space,Str "is",Space,Str "given",Space,Str "as",Space,Str "chicago-fullnote-bibliography-bb.csl"],Header 1 ("references",[],[]) [Str "References"],Para [Str "here",Space,Str "the",Space,Str "refs!"]]
+
+mdConversion pandoc to hmtl
+
+html "<p>doc1.md version 1</p>\n<p>The <span class=\"citation\"\ndata-cites=\"frank09geo\">[@frank09geo]</span> and <span class=\"citation\"\ndata-cites=\"frank-machbarkeit\">[@frank-machbarkeit]</span> are just\nrefs.</p>\n<p>The references are in \"resources/BibTexLatex.bib\". The default style\nis given as chicago-fullnote-bibliography-bb.csl</p>\n<h1 id=\"references\">References</h1>\n<p>here the refs!</p>"
+
+mdConversion pandoc to pdf
+
+pdf1 done in /docs/result.pdf
+
+mdConversion done
+
+------------------ main uniformStyle 
+returning () 
+

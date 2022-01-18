@@ -21,7 +21,7 @@
               orginals are found in dire doughDir and go to bakeDir
 -}
 
-module Lib.Top (mdConversion) where
+module Lib.Top (mdConversion1, markdownOptions) where
 
 import qualified Text.Pandoc as Pandoc
 import Text.Pandoc.Writers.LaTeX
@@ -36,7 +36,11 @@ import Uniform.Pandoc (MarkdownText, unMT, markdownFileType, Pandoc, unPandocM)
 import Uniform.Pandoc (writeHtml5String2)
 import Uniform.BibTex
 
-showJSONnice = bl2t.encodePretty
+showJSONnice = showT -- bl2t.encodePretty
+
+mdConversion1 :: IO () 
+mdConversion1 = do 
+    startProg "uniformStyle" mdConversion
 
 mdConversion ::  ErrIO ()
 mdConversion   = do
